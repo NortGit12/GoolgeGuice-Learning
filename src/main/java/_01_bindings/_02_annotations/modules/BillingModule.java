@@ -3,6 +3,7 @@ package _01_bindings._02_annotations.modules;
 import _01_bindings._02_annotations.annotations.GoogleCC;
 import _01_bindings._02_annotations.annotations.PayPalCC;
 import _01_bindings._02_annotations.impls.DatabaseTransactionLog;
+import _01_bindings._02_annotations.impls.GenericCreditCardProcessor;
 import _01_bindings._02_annotations.impls.GoogleCreditCardProcessor;
 import _01_bindings._02_annotations.impls.PayPalCreditCardProcessor;
 import _01_bindings._02_annotations.impls.RealBillingService;
@@ -18,9 +19,9 @@ public class BillingModule extends AbstractModule {
     bind(TransactionLog.class).to(DatabaseTransactionLog.class);
     bind(BillingService.class).to(RealBillingService.class);
 //    bind(BillingService.class).to(SemiRealBillingService.class);
-    bind(CreditCardProcessor.class).annotatedWith(PayPalCC.class).to(PayPalCreditCardProcessor.class);
-    bind(CreditCardProcessor.class).annotatedWith(GoogleCC.class).to(GoogleCreditCardProcessor.class);
-    bind(CreditCardProcessor.class).annotatedWith(Names.named("Checkout")).to(PayPalCreditCardProcessor.class);
+//    bind(CreditCardProcessor.class).annotatedWith(PayPalCC.class).to(PayPalCreditCardProcessor.class);
+//    bind(CreditCardProcessor.class).annotatedWith(GoogleCC.class).to(GoogleCreditCardProcessor.class);
+    bind(CreditCardProcessor.class).annotatedWith(Names.named("Checkout")).to(GenericCreditCardProcessor.class);
   }
   
 }
