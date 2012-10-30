@@ -1,4 +1,4 @@
-package _01_bindings._03_linked;
+package _01_bindings._03_instance;
 
 import _01_bindings._03_instance.impls.Favorites;
 import _01_bindings._03_instance.modules.InstanceModule;
